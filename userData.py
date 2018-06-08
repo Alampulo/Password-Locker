@@ -13,8 +13,10 @@ class UserData:
         self.password = password
         self.confirmPassword = confirmPassword
 
-    def save_account(self):
+        @classmethod
 
-        UserData.create_account.append(self)
+    def save_account(cls):
+
+        UserData.create_account.append(cls)
 
     
