@@ -3,7 +3,7 @@ class UserData:
     """
 
     create_account = []
-    
+
     def __init__(self, firstName, lastName, email, username, password, confirmPassword):
         
         self.firstName = firstName
@@ -13,3 +13,8 @@ class UserData:
         self.password = password
         self.confirmPassword = confirmPassword
 
+    def save_account(self):
+
+        UserData.create_account.append(self)
+
+    
