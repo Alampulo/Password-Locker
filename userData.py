@@ -2,6 +2,8 @@ class UserData:
     """
     """
 
+    create_account = []
+    
     def __init__(self, firstName, lastName, email, username, password, confirmPassword):
         
         self.firstName = firstName
