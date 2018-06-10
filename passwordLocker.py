@@ -4,16 +4,6 @@ import string
 from userData import UserData
 from credentialsData import CredentialsData
 
-def randompassword():
-        """
-        generates a random password
-        """
-
-        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
-        size = random.randint(8, 12)
-        password = ''.join(random.choice(chars) for x in range(size))
-
-        return password
 
 
 def new_user(name_one, name_two, email_address, user_name, pseudo_name, pass_word, confirm_password):
@@ -32,12 +22,14 @@ def save_accounts(account):
     """
     account.save_account()
 
-def auth_user(name, password):
-    '''
-    function to authenticate a user
-    '''
-    user_exist = User.user_exist(name, password)
-    return user_exist
+
+def check_user(name, password):
+    """
+    checks if user exists
+    """
+    user_exists = UserData.user_login(name, password)
+    
+    return user_exists
 
 
 def create_credential(wsite, uname, password):
@@ -47,6 +39,16 @@ def create_credential(wsite, uname, password):
     new_cred = Credential(wsite, uname, password)
     return new_cred
 
+def randompassword():
+        """
+        generates a random password
+        """
+
+        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
+        size = random.randint(8, 12)
+        password = ''.join(random.choice(chars) for x in range(size))
+
+        return password
 
 def save_credentials(cred):
     '''
