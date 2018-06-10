@@ -39,24 +39,24 @@ class UserData:
 
     def user_login(cls, username, password):
 
-        '''
+        """
         authenticates the user 
-        '''
+        """
+
         for user in UserData.create_account:
             if user.username == username and user.password == password:
                 return user
             return False
 
     def randompassword():
-        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
+
+        """
+        generates a random password
+        """
+
+        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits   
         size = random.randint(8, 12)
-        return ''.join(random.choice(chars) for x in range(size))
-    def generate_password():
-        '''
-        function to generate a new password
-        '''
-
-        alphabet = string.ascii_letters + string.digits
-        password = ''.join(secrets.choice(alphabet) for i in range(5))
-
+        password = ''.join(random.choice(chars) for x in range(size))
+     
         return password
+ 
