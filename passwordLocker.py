@@ -1,6 +1,8 @@
 #!/usr/bin/env python3.6
+
 import random
 import string
+
 from userData import UserData
 from credentialsData import CredentialsData
 
@@ -15,29 +17,33 @@ def new_user(name_one, name_two, email_address, user_name, pseudo_name, pass_wor
     
     return new_user
 
-
 def save_accounts(account):
     """
     save new user account
     """
     account.save_account()
 
-
-def check_user(name, password):
+def check_user(used_name, used_password):
     """
     checks if user exists
     """
-    user_exists = UserData.user_login(name, password)
-    
+    user_exists = UserData.user_login(used_name, used_password)
+
     return user_exists
 
+def add_credential(acc, acc_name, acc_password):
+    """
+    adds a credential
+    """
+    added_credential = CredentialsData(acc, acc_name, acc_password)
 
-def create_credential(wsite, uname, password):
-    '''
-    function to create a new credential
-    '''
-    new_cred = Credential(wsite, uname, password)
-    return new_cred
+    return added_credential
+
+def save_credentials(credential):
+    """
+    saves created credential
+    """
+    credential.save_credential()
 
 def randompassword():
         """
@@ -50,11 +56,6 @@ def randompassword():
 
         return password
 
-def save_credentials(cred):
-    '''
-    function to create a new credential
-    '''
-    cred.save_credential()
 
 
 def del_credential(cred):
