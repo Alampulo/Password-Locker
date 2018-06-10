@@ -6,7 +6,7 @@ class UserData:
 
     create_account = []
 
-    def __init__(self, firstName, lastName, email, username, nick_name, password, confirmPassword):
+    def __init__(self, firstName, lastName, email, username, password, confirmPassword):
 
         """
         Initializes the class
@@ -16,7 +16,6 @@ class UserData:
         self.lastName = lastName
         self.email = email
         self.username = username
-        self.nick_name = nick_name
         self.password = password
         self.confirmPassword = confirmPassword
 
