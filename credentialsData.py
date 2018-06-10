@@ -26,11 +26,12 @@ class credentialsData:
         displays the credentials 
         '''
         return cls.credentials
+
     def delete_credential(self):
         '''
-        remove credential objects from credential list
+        deletes credential from credentials list
         '''
-        Credential.credential_list.remove(self)
+        credentialsData.credentials.remove(self)
 
     @classmethod
     def find_by_username(cls, name):
@@ -50,7 +51,4 @@ class credentialsData:
 
     @classmethod
 
-    @classmethod
-    def copy_user_name(cls, name):
-        credential_found = Credential.find_by_username(name)
-        pyperclip.copy(credential_found.user_name)
+    
