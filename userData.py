@@ -1,9 +1,3 @@
-import random
-import string
-
-global create_account
-
-
 class UserData:
 
     '''

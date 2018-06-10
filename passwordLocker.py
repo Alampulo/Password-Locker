@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
-
+import random
+import string
 from userData import UserData
 from credentialsData import CredentialsData
 
@@ -17,27 +18,19 @@ def randompassword():
 
 def new_user(name_one, name_two, email_address, user_name, pseudo_name, pass_word, confirm_password):
 
-    '''
+    """
     creates new user 
-    '''
+    """
     new_user = UserData(name_one, name_two, email_address, user_name, pseudo_name, pass_word, confirm_password)
+    
     return new_user
 
 
-def save_user(account):
-    '''
+def save_accounts(account):
+    """
     save new user account
-    '''
-    account.save_user()
-
-
-def generate_password():
-    '''
-    function to generate a new password
-    '''
-    gen_password = User.generate_password()
-    return gen_password
-
+    """
+    account.save_account()
 
 def auth_user(name, password):
     '''
