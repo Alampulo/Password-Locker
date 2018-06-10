@@ -27,10 +27,12 @@ class CredentialsData:
         displays the credentials 
         """
         return cls.credentials
+        
+    @classmethod
 
-    def delete_credential(self):
+    def delete_credential(cls):
 
         """
         deletes credential from credentials list
         """
-        CredentialsData.credentials.remove(self)  
+        CredentialsData.credentials.remove(cls)  

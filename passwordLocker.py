@@ -46,38 +46,27 @@ def save_credentials(credential):
     credential.save_credential()
 
 def randompassword():
-        """
-        generates a random password
-        """
+    """
+    generates a random password
+    """
 
-        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
-        size = random.randint(8, 12)
-        password = ''.join(random.choice(chars) for x in range(size))
+    chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
+    size = random.randint(8, 12)
+    password = ''.join(random.choice(chars) for x in range(size))
 
-        return password
-
-
-
-def del_credential(cred):
-    '''
-    function to delete a credential
-    '''
-    cred.delete_credential()
-
-
-def find_credential(uname):
-    '''
-    function that finds a credential by the username and returns it
-    '''
-    return Credential.find_by_username(uname)
-
+    return password
 
 def display_credentials():
-    '''
-    function that returns all the saved credential
-    '''
-    return Credential.display_credentials()
+    """
+    returns the saved credential
+    """
+    return CredentialsData.display_credentials()
 
+def delete_credentials(credential):
+    """
+    delete a credential
+    """
+    credential.delete_credential()
 
 def main():
     print("Hello, welcome to Password Locker.")
