@@ -11,7 +11,6 @@ class credentialsData:
         self.username = username
         self.password = password
 
-    @classmethod
 
 
     def save_credential(self):
@@ -20,11 +19,13 @@ class credentialsData:
         '''
         credentialsData.credentials.append(self)
 
-    def displayCredentials(cls):
+    @classmethod
 
-        for nick_name in cls.credentials:
-                    
-            return credentials
+    def display_credentials(cls):
+        '''
+        displays the credentials 
+        '''
+        return cls.credentials
     def delete_credential(self):
         '''
         remove credential objects from credential list
@@ -48,11 +49,6 @@ class credentialsData:
         return False
 
     @classmethod
-    def display_credentials(cls):
-        '''
-        returns the credential list
-        '''
-        return cls.credential_list
 
     @classmethod
     def copy_user_name(cls, name):
