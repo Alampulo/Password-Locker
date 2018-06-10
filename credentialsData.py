@@ -1,4 +1,4 @@
-class credentialsData:
+class CredentialsData:
 
     """
     create new instances
@@ -17,7 +17,7 @@ class credentialsData:
         """
         save credential objects to the credential list
         """
-        credentialsData.credentials.append(self)
+        CredentialsData.credentials.append(self)
 
     @classmethod
 
@@ -33,4 +33,4 @@ class credentialsData:
         """
         deletes credential from credentials list
         """
-        credentialsData.credentials.remove(self)  
+        CredentialsData.credentials.remove(self)  

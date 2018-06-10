@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 
-from user import User
-from credential import Credential
+from userData import UserData
+from credentialsData import CredentialsData
 
 def randompassword():
         """
