@@ -56,7 +56,7 @@ def randompassword():
 
     return password
 
-def display_credentials():
+def display_credential():
     """
     returns the saved credential
     """
@@ -74,7 +74,7 @@ def main():
     print("This will store your credentails and generate a password for you")
 
     while True:
-        print("Type 'register' to create account. If you already created one, type 'login'.")
+        print("Type 'register' to create account. If you already created one, type 'signin'.")
         account_login = input().lower()
         if account_login == "register":
             print("First name:")
@@ -89,7 +89,7 @@ def main():
             print("email:")
             emails = input()
             print('\n')
-            print("To create a password, type 'create' or to get a generated password - 'generate'")
+            print("To create a password, type 'create' or to generate a password - 'generate'")
             pass_choice = input()
             while True:
                 if pass_choice == "create":
@@ -103,92 +103,61 @@ def main():
                 else:                    
                     print("Type 'create' or 'generate'")
                     break
-                save_accounts(new_users(firstname, lastname, emails, username, password))
-                print(f"Account created successfully. Username: {username} and password: {password}.")
-                print('\n')
-                break
-
-        elif code == "login":
-            print("Log In")
-            print("-"*30)
-
-            print("User name....")
-            login_name = input()
+            save_accounts(new_users(firstname, lastname, emails, username, password))
+            print("Created successfully.")
+            print(f" Username: {username}, password: {password}.")
             print('\n')
+            break
 
-            print("Account password....")
+        elif account_login == "signin":
+            print("Sign In:\n")
+            print("Username:")
+            username = input()
+            print('\n')
+            print("Password:")
             password = input()
             print('\n')
-
-            sign_in = auth_user(login_name, password)
-
+            sign_in = check_user(user_name, user_password)
             if sign_in == True:
                 break
-            print("Username or password not recognized. Please try again.")
-            print('\n')
+            print("Please sign up to access password locker.\n")
 
         else:
-            print('\n')
-            print("Not recognized. Please use one of the codes.")
-            print('\n')
+            print("Try the choices above")
 
     while True:
-        print(f"Please use the following codes to navigate: 'add' - add new credentials, 'list' - show all stored credentials, 'find' - find specific credentials, 'exit' - leave.")
+        print(f"Type 'create' to add a credential or 'saved' to see the saved credentials.")
 
-        short_code = input().lower()
+        credentials2 = input().lower()
 
-        if short_code == 'add':
-            print("New Credentials")
-            print("-" * 10)
+        if credentials2 == 'create':
+            print("Type platform to add:")
+            plat_form = input()
+            print("\n")
 
-            print("To which website does this account belong?")
-            w_site = input()
+            print("Type in username for the platform:")
+            username2 = input()
 
-            print("Username....")
-            u_name = input()
+            print("Type in password for the platform:")
+            password2 = input()
 
-            print("Password....")
-            p_word = input()
-
-                    # create and save new cred
-            save_credentials(create_credential(w_site, u_name, p_word))
+            add_credentials(save_credential(platform, username, password))
             print('\n')
-            print(f"New Credential created: {w_site}: {u_name} -- {p_word}")
+            print(f" {platform}: {username}: {password}")
             print('\n')
 
-        elif short_code == 'list':
-            if display_credentials():
-                print("Here is a list of all your credentials:")
-                print('\n')
-
-                for credential in display_credentials():
-                    print(f"{credential.website}: {credential.user_name} -- {credential.password}")
+        elif credentials2 == 'saved':
+            if display_credential():
+                print("Credentials:\n")
+                for credential in display_credential():
+                    print(f"{credential.platform}: {credential.username}: {credential.password}")
                     print('\n')
                 else:
-                    print('\n')
-                    print("You do not have any credentials saved yet.")
-                    print('\n')
-
-            elif short_code == 'find':
-                print("Enter the user name you want to search for.")
-
-                search_name = input()
-                if find_credential(search_name):
-                    search_credential = find_credential(search_name)
-                    print('\n')
-                    print(f"{credential.website}: {search_credential.user_name} -- {search_credential.password}")
-                    print('\n')
-                else:
-                    print('\n')
-                    print("That credential cannot be found. Please check your spelling and try again.")
+                    print("Type 'create' to create a credential.")
                     print('\n')
 
-        elif short_code == 'exit':
-            print("Goodbye...")
-            break
         else:
-            print('\n')
-            print("Not recognized. Please use one of the short codes.")
+            print("Sorry, try again.")
             print('\n')
 
 
