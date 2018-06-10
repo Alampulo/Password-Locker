@@ -15,11 +15,12 @@ def randompassword():
         return password
 
 
-def create_user(login, pword):
+def new_user(name_one, name_two, email_address, user_name, pseudo_name, pass_word, confirm_password):
+
     '''
-    function to create user account
+    creates new user 
     '''
-    new_user = User(login, pword)
+    new_user = UserData(name_one, name_two, email_address, user_name, pseudo_name, pass_word, confirm_password)
     return new_user
 
 
