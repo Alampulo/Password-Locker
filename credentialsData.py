@@ -1,4 +1,5 @@
 class credentialsData:
+
     """
     create new instances
     """
@@ -11,44 +12,25 @@ class credentialsData:
         self.username = username
         self.password = password
 
-
-
     def save_credential(self):
-        '''
+
+        """
         save credential objects to the credential list
-        '''
+        """
         credentialsData.credentials.append(self)
 
     @classmethod
 
     def display_credentials(cls):
-        '''
+
+        """
         displays the credentials 
-        '''
+        """
         return cls.credentials
 
     def delete_credential(self):
-        '''
+
+        """
         deletes credential from credentials list
-        '''
-        credentialsData.credentials.remove(self)
-
-    @classmethod
-    def find_by_username(cls, name):
-        '''
-        method takes in the user name and returns a credential that matches it
-        '''
-        for credential in cls.credential_list:
-            if credential.user_name == name:
-                return credential
-
-    @classmethod
-    def credential_exist(cls, name):
-        for credential in cls.credential_list:
-            if credential.user_name == name:
-                return True
-        return False
-
-    @classmethod
-
-    
+        """
+        credentialsData.credentials.remove(self)  
