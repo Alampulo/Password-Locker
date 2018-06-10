@@ -74,7 +74,7 @@ def main():
     print("This will store your credentails and generate a password for you")
 
     while True:
-        print("Type 'register' to create account. If you already created one, type 'signin'.")
+        print("Type register to create account. If you already created one, type signin.")
         account_login = input().lower()
         if account_login == "register":
             print("First name:")
@@ -89,7 +89,7 @@ def main():
             print("email:")
             emails = input()
             print('\n')
-            print("To create a password, type 'create' or to generate a password - 'generate'")
+            print("To create a password, type create or to generate a password type generate")
             pass_choice = input()
             while True:
                 if pass_choice == "create":
@@ -101,7 +101,7 @@ def main():
                     print('\n')
                     break
                 else:                    
-                    print("Type 'create' or 'generate'")
+                    print("Type create or 'generate")
                     break
             save_accounts(new_users(firstname, lastname, emails, username, password))
             print("Created successfully.")
@@ -117,7 +117,7 @@ def main():
             print("Password:")
             password = input()
             print('\n')
-            sign_in = check_user(user_name, user_password)
+            sign_in = check_user(username, password)
             if sign_in == True:
                 break
             print("Please sign up to access password locker.\n")
@@ -126,7 +126,7 @@ def main():
             print("Try the choices above")
 
     while True:
-        print(f"Type 'create' to add a credential or 'saved' to see the saved credentials.")
+        print(f"Type create to add a credential, saved to see the saved credentials or exit to stop adding credentials.")
 
         credentials2 = input().lower()
 
@@ -141,21 +141,23 @@ def main():
             print("Type in password for the platform:")
             password2 = input()
 
-            add_credentials(save_credential(platform, username, password))
+            save_credentials(add_credential(plat_form, username2, password2))
             print('\n')
-            print(f" {platform}: {username}: {password}")
+            print(f" {plat_form}: {username2}: {password2}")
             print('\n')
 
         elif credentials2 == 'saved':
             if display_credential():
                 print("Credentials:\n")
                 for credential in display_credential():
-                    print(f"{credential.platform}: {credential.username}: {credential.password}")
+                    print(f"Platform => {credential.platform}: Username => {credential.username}: Password => {credential.password}")
                     print('\n')
                 else:
-                    print("Type 'create' to create a credential.")
+                    print("There are no credential saved for now. Type create to create a credential.")
                     print('\n')
 
+        elif credentials2 == 'exit':
+                    break
         else:
             print("Sorry, try again.")
             print('\n')
