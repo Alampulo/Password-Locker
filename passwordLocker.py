@@ -141,6 +141,21 @@ def main():
             print("Type in password for the platform:")
             password2 = input()
 
+            print("To create a password, type create or to generate a password type generate")
+            pass_choice = input()
+            while True:
+                if pass_choice == "create":
+                    print("Password:")
+                    password2 = input()
+                    break
+                elif pass_choice == "generate":
+                    password2 = randompassword()
+                    print('\n')
+                    break
+                else:
+                    print("Type create or 'generate")
+                    break
+
             save_credentials(add_credential(plat_form, username2, password2))
             print('\n')
             print(f" {plat_form}: {username2}: {password2}")
@@ -153,7 +168,7 @@ def main():
                     print(f"Platform => {credential.platform}: Username => {credential.username}: Password => {credential.password}")
                     print('\n')
                 else:
-                    print("There are no credential saved for now. Type create to create a credential.")
+                    print("There are no more credentials saved for now. Type create to create a credential.")
                     print('\n')
 
         elif credentials2 == 'exit':
