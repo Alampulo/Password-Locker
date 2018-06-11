@@ -6,7 +6,7 @@ class TestuserData(unittest.TestCase):
         """
         set up method
         """
-        self.new_user = UserData("cliff", "kasera", "ckasera@gmail.com", "Blankphrase" "lololo") 
+        self.new_user = UserData("cliff", "kasera", "ckasera@gmail.com", "Blankphrase", "lololo") 
 
     def test_init(self):
         """
