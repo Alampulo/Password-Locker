@@ -138,9 +138,6 @@ def main():
             print("Type in username for the platform:")
             username2 = input()
 
-            print("Type in password for the platform:")
-            password2 = input()
-
             print("To create a password, type create or to generate a password type generate")
             pass_choice = input()
             while True:
