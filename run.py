@@ -159,15 +159,18 @@ def main():
             print('\n')
 
         elif credentials2 == 'saved':
-            if display_credential():
+            print ("Enter your password: ")
+            credPassword = input()
+            print ("\n")        
+            if credPassword == password:       
+                display_credential()
                 print("Credentials:\n")
                 for credential in display_credential():
                     print(f"Platform => {credential.platform}: Username => {credential.username}: Password => {credential.password}")
                     print('\n')
-                else:
-                    print("There are no more credentials saved for now. Type create to create a credential.")
-                    print('\n')
-
+            else:
+                print("There are no more credentials saved for now. Type create to create a credential.")
+                print('\n')
         elif credentials2 == 'exit':
                     break
         else:
