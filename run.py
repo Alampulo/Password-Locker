@@ -75,7 +75,7 @@ def main():
 
     while True:
         print("Type register to create account. If you already created one, type signin.")
-        account_login = input().lower()
+        account_login = input()
         if account_login == "register":
             print("First name:")
             firstname = input()
@@ -128,7 +128,7 @@ def main():
     while True:
         print(f"Type create to add a credential, saved to see the saved credentials or exit to stop adding credentials.")
 
-        credentials2 = input().lower()
+        credentials2 = input()
 
         if credentials2 == 'create':
             print("Type platform to add:")
